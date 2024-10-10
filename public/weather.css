@@ -1,0 +1,58 @@
+body{
+    background: linear-gradient(180deg, hsl(192, 100%, 70%), hsl(39, 95%, 67%));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.493);
+    margin: 40px 0px 70px 0px;
+}
+
+h2{
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-top: 0%;
+    display: block;
+}
+
+p#info{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+}
+
+footer{
+    margin-top: 80px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#location, #label, button{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px 0px 10px 0px;
+    border-radius: 10px;
+}
+
+button:hover{
+    box-shadow: 1px 1px 10px hsla(0, 0%, 0%, 0.555);
+    color: hsla(0, 0%, 0%, 0.737);
+}
+
+button:active{
+    box-shadow: 4px 4px 10px hsla(0, 0%, 0%, 0.455);
+    color: hsla(0, 0%, 0%, 0.537);
+}
+
+.emoji{
+    font-size: 4rem;
+    margin-bottom: 0px;
+    margin-top: 8px;
+}

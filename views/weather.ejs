@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+
+<div id="container">
+    <h1>Weather Forecast</h1>
+    <div id="weather">
+        <form action="/" method="post">
+            <label for="location" id="label">City:</label>
+            <input type="text" placeholder="Location" id="location" name="location" value="">
+            <button type="submit" formaction="/getWeather">Get Weather</button>
+        </form>
+        <div>
+            <% if(locals.data && locals.city){ %>
+                <% if(data.humidity.afternoon >= 80){ %>
+                    <p class="emoji">🌧️</p>
+                    <h2>
+                        It'll rain tomorrow in <%= city %>.
+                    </h2>
+                    <p id="info">
+                        Ensure to go with an umbrella☔.
+                    </p>
+                <% } else { %>
+                    <p class="emoji">☀️</p>
+                    <h2>
+                        It'll be pretty sunny tomorrow in <%= city %>.
+                    </h2>
+                    <p id="info">
+                        You can go without an umbrella🌂.
+                    </p>
+                <% } %>
+            <% } else { %>
+                <% if(locals.nil){ %>
+                    <h2 id="condition"><%= nil %></h2>
+                <% } %>
+            <% } %>
+
+            <% if(locals.error){ %>
+                <h2>
+                    <%= error %>
+                </h2>
+            <% } %>
+
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
