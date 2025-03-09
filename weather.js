@@ -5,6 +5,9 @@ import axios from "axios";
 const app = express();
 const port = 3000;
 
+const config = require('./config');  // Import config.js
+const API_KEY = config.API_KEY;      // Extract API_KEY
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -19,11 +22,11 @@ app.post("/getWeather", async (req, res) => {
         if(location === ""){
             res.render("weather.ejs", {nil: "Please enter your location👆"});
         } else {
-        const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1000000000000000000&appid=7c1873e27a1d2783f0b1897c38a7b4a5`);
+        const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1000000000000000000&appid=${API_KEY}`);
         const lat = response.data[0].lat;
         const lon = response.data[0].lon;
         const date = String(new Date().getFullYear()) + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate() + 1).padStart(2, "0");
-        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=${lat}&lon=${lon}&date=${date}&appid=7c1873e27a1d2783f0b1897c38a7b4a5`)
+        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/3.0/onecall/day_summary?lat=${lat}&lon=${lon}&date=${date}&appid=${API_KEY}`)
         const result = weatherResponse.data;
         res.render("weather.ejs", {data: result, city: location});
         console.log(lat);
