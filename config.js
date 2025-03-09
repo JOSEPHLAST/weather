@@ -1,0 +1,3 @@
+module.exports = {
+  API_KEY: "7c1873e27a1d2783f0b1897c38a7b4a57c1873e27a1d2783f0b1897c38a7b4a5"
+}
